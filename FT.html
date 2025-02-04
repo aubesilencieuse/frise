@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frise Chronologique</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 50px 0;
+        }
+        .timeline {
+            position: relative;
+            width: 60%;
+            max-width: 800px;
+        }
+        .timeline::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        background-color: #333;
+        top: 20px;  /* Ajout d'un espace en haut */
+        bottom: 20px; /* Ajout d'un espace en bas */
+        left: 50%;
+        transform: translateX(-50%);
+}
+
+        .event {
+            position: relative;
+            width: 45%;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .event.left {
+            left: -15%;
+            text-align: left;
+        }
+        .event.right {
+            left: 65%;
+            text-align: right;
+        }
+        .event::before {
+            content: attr(data-date);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #71787f;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+        .event.left::before {
+            left: 105%;
+        }
+        .event.right::before {
+            right: 105%;
+        }
+        .dot {
+            position: absolute;
+            top: 50%;
+            left: -25%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #333;
+            z-index: 1;
+        }
+        .dot2 {
+            position: absolute;
+            top: 50%;
+            right: -30%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #333;
+            z-index: 1;
+        }
+        .event-content {
+            font-size: 0.9em;
+            color: #333;
+            max-width: 300px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline">
+        <div class="event right" data-date="Été">
+            <div class="dot" style="background-color: #9869a0;"></div>
+            <div class="event-content">
+                <p><b>Juin :</b> Rendez-vous avec Diane Laumonier (Arinfo) pour une formation en alternance. Validation des prérequis et test de positionnement. <br/>
+                <b>Juillet :</b> Travail sur les liens GitHub et mise à jour du CV. Envoi des documents mi-juillet pour validation. Début des recherches d'entreprises via Arinfo et contacts téléphoniques mais aucun résultat concluant.<br/>
+                <b>Août :</b> Exploration de La Bonne Boîte, envoi de CV et lettres de motivation, mais aucune réponse. Rendez-vous avec France Travail : alternatives à l’alternance évoquées.<br/>
+                <b>Septembre :</b> Demande d'inscription à une formation financée en octobre. Blocage administratif : carte d’identité périmée. Impossible de finaliser l’inscription.</p>
+            </div>
+        </div>
+        <div class="event left" data-date="Automne">
+            <div class="dot2" style="background-color: #52805a;"></div>
+            <div class="event-content">
+                <p><b>Novembre :</b>Retour aux Sables d'Olonne. Recherche des prochaines dates de formation Arinfo (Mars pour alternance, Avril pour formation classique). Renforcement des compétences en développement web.<br/>
+                <b>Décembre :</b>Motivation en baisse après les obstacles administratifs. Malade pendant trois semaines (bronchite, grippe, gastro), ce qui a ralenti mes progrès. Premières démarches pour une nouvelle carte d’identité.
+                </p>
+            </div>
+        </div>
+        <div class="event right" data-date="Janvier">
+            <div class="dot" style="background-color: #59607f;"></div>
+            <div class="event-content">
+                <p>Recherches plus approfondis des formations (pour avril, mai et septembre).<br/>
+                    Avancement et finalisation de projets personnels en développement web.<br/>
+                Impossibilité d'avancer dans les papiers de ma carte d'identité dû à des soucis financiers. (prêt + remboursement d'un créancier)<br/>
+                Recherche sur des sites comme indeed et jooble pour un temps partiel.<br/>
+                Envoie de candidatures début février.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
